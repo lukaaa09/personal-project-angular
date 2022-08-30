@@ -1,0 +1,15 @@
+<!-- <div class="div">
+    <div></div>
+</div> -->
+<div class="form-container">
+    <div class="form-errors"></div>
+    <form [formGroup]="loginForm" class="form">
+        <h1>Wellcome</h1>
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" formControlName="username">
+        <label for="password">password:</label>
+        <input type="password" class="form-control" id="password" name="password" formControlName="password">
+        <button (click)="loginUser()" class="submit-button">Submit</button>
+        <span>Not register Yet? <a (click)="navigateRegister()">Create Account</a></span>
+    </form>
+</div>

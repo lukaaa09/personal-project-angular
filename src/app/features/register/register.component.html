@@ -1,0 +1,23 @@
+<div class="form-container">
+    <div class="form-errors"></div>
+    <form [formGroup]="register" class="form">
+        <h1>Join Us</h1>
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+        <label for="lastname">lastname:</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" formControlName="email">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" formControlName="password">
+        <label for="password">Confirmpassword:</label>
+        <input type="password" class="form-control" id="password" name="password" formControlName="confirmPassword">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" formControlName="username">
+
+
+        <button (click)="registerMethod()" class="submit-button">Create Accaount</button>
+        <span>Already register? <a (click)="navigatelogin()">login</a></span>
+
+    </form>
+</div>
