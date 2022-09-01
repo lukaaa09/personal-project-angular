@@ -1,15 +1,37 @@
-<!-- <div class="div">
-    <div></div>
-</div> -->
-<div class="form-container">
-    <div class="form-errors"></div>
-    <form [formGroup]="loginForm" class="form">
-        <h1>Wellcome</h1>
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" formControlName="username">
-        <label for="password">password:</label>
-        <input type="password" class="form-control" id="password" name="password" formControlName="password">
-        <button (click)="loginUser()" class="submit-button">Submit</button>
-        <span>Not register Yet? <a (click)="navigateRegister()">Create Account</a></span>
-    </form>
+<div class="background">
+    <h1>Search Developers Around The World</h1>
+    <div class="form-container">
+        <div class="form-errors"></div>
+        <form [formGroup]="loginForm" class="form">
+            <h2>Wellcome</h2>
+            <label for="email">email:</label>
+            <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            <ng-container>
+
+            </ng-container>
+            <label for="password">password:</label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+            <button (click)="loginUser()" class="submit-button">Submit</button>
+            <span>Not register Yet? <a (click)="navigateRegister()">Create Account</a></span>
+        </form>
+    </div>
 </div>
+<footer>
+    <div>
+        <p>About Us</p>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, sapiente quisquam placeat ipsum pariatur
+            repudiandae.</span>
+    </div>
+    <div>
+        <p>Contact Us</p>
+        <img src="../../../assets/linkedin_icon-icons.com_65929.png" alt=""> <span>Linkedin</span>
+        <img src="../../../assets/facebook_108044.png" alt=""> <span>Facebook</span>
+        <img src="../../../assets/twitter_socialnetwork_20007.png" alt=""> <span>Twitter</span>
+        <img src="../../../assets/instagram_108043.png" alt=""> <span>Instagram</span>
+    </div>
+    <div>
+        <p>Support</p>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae accusantium voluptate numquam
+            voluptatem consectetur.</span>
+    </div>
+</footer>

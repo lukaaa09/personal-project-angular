@@ -1,23 +1,45 @@
-<div class="form-container">
-    <div class="form-errors"></div>
-    <form [formGroup]="register" class="form">
-        <h1>Join Us</h1>
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name" formControlName="name">
-        <label for="lastname">lastname:</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" formControlName="email">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password" formControlName="password">
-        <label for="password">Confirmpassword:</label>
-        <input type="password" class="form-control" id="password" name="password" formControlName="confirmPassword">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" formControlName="username">
-
-
-        <button (click)="registerMethod()" class="submit-button">Create Accaount</button>
-        <span>Already register? <a (click)="navigatelogin()">login</a></span>
-
-    </form>
+<div class="background">
+    <div class="form-container">
+        <div class="form-errors"></div>
+        <form [formGroup]="register" class="form">
+            <h1>Join Us</h1>
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name">
+            <ng-container *ngIf="name.touched && name.errors">
+                <p *ngIf="name.errors['required']">write at least 2 character</p>
+            </ng-container>
+            <label for="lastname">lastname:</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            <ng-container *ngIf="lastName.touched && lastName.errors">
+                <p *ngIf="lastName.errors['required']">write at least 5 character</p>
+            </ng-container>
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            <ng-container *ngIf="email.touched && email.errors">
+                <p *ngIf="email.errors['required']">you should write correct email</p>
+            </ng-container>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+            <ng-container *ngIf="password.touched && password.errors">
+                <p *ngIf="password.errors['required']">password should contain only english characters</p>
+                <p *ngIf="password.errors['min']">password should contain at least 7 character</p>
+    
+            </ng-container>
+            <label for="password">Confirmpassword:</label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="confirmPassword">
+            <ng-container *ngIf="confirmPassword.touched && confirmPassword.errors">
+                <p *ngIf="confirmPassword.errors['required']">password and cofirm password should be same</p>
+            </ng-container>
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" formControlName="username">
+            <ng-container *ngIf="username.touched && username.errors">
+                <p *ngIf="username.errors['required']">write at least 5 character</p>
+            </ng-container>
+    
+    
+            <button (click)="registerMethod()" class="submit-button">Create Accaount</button>
+            <span>Already register? <a (click)="navigatelogin()">login</a></span>
+    
+        </form>
+    </div>
 </div>

@@ -1,5 +1,31 @@
 {
-  "users": [{
-
-  }]
+  "users": [
+    {
+      "email": "testing@gmail.com",
+      "password": "$2a$10$56a2ROpJ7dgD8kRd2FVRUO5N4Y333sdMU8ckmJbrrnuIZHS8BM2nC",
+      "name": "NARUTO",
+      "lastName": "uzumaki",
+      "confirmPassword": "lukaluka",
+      "username": "lukks09",
+      "id": 1
+    },
+    {
+      "email": "kurtanidze@gmail.com",
+      "password": "$2a$10$p1xN3Fo0Dsoyt1KINAzAlOJ2z3zyc0nFeUZc23/t9LfFrUwQIh6Ji",
+      "name": "lukacho",
+      "lastName": "kurtanidze",
+      "confirmPassword": "lukaluka",
+      "username": "lukks09",
+      "id": 2
+    },
+    {
+      "email": "developer@gmail.com",
+      "password": "$2a$10$cEGhzC.yhjPDR8jdbRlvY.vGS31/6GX3pQ8RB.ZNNszJ4/p0Db1Ma",
+      "name": "lukacho",
+      "lastName": "kurtanidze",
+      "confirmPassword": "lukaluka",
+      "username": "lukks15",
+      "id": 3
+    }
+  ]
 }
