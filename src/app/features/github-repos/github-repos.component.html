@@ -1,0 +1,14 @@
+<div *ngIf="githubRepos" class="card">
+    <div class="card-header">
+        <h3>Github Repositories</h3>
+    </div>
+    <div class="card-body">
+        <ul>
+            <li *ngFor="let repo of githubRepos ">
+                <a [href]="repo.html_url">{{repo.name}}</a>
+                <span>{{repo.stargazers_count}} Stars</span>
+                <span>{{repo.watchers_count}} Watchers</span>
+            </li>
+        </ul>
+    </div>
+</div>

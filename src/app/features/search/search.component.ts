@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
-import { UserService } from 'src/app/core/services/user.service';
+import { SearchService } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -9,16 +8,29 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  public githubUserQuery: string | undefined;
+  public githubProfile: any;
+  public githubRepos: any[] | undefined;
+  public errorMessage: string | undefined;
 
-  constructor(private router: Router, private userservice: UserService) { }
+
+
+  constructor(private router: Router, private userservice: SearchService) { }
 
   ngOnInit(): void {
   }
   public navigateToDashboard() {
     this.router.navigateByUrl('/dashboard').then()
   }
-  public getUser() {
-    // this.userservice.getUser().pipe()
+  public searchUser() {
+    this.userservice.getProfile(this.githubUserQuery).subscribe((data) => {
+      this.githubProfile = data
+    });
+    this.userservice.getRepos(this.githubUserQuery).subscribe((data) => {
+      this.githubRepos = data
+      console.log(this.githubRepos)
+
+    })
   }
 
 }

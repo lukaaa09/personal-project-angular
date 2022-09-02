@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   apiUrl = 'https://api.github.com/users'
-  followers = 'https://api.github.com/users/mojombo/followers'
   pageLimit = 10
   constructor(private http: HttpClient) { }
 
@@ -15,12 +14,5 @@ export class UserService {
     return this.http.get(`${this.apiUrl}?per_page=${this.pageLimit}`)
   }
 
-  public getFolloers() {
-    return this.http.get(`${this.followers}`)
-  }
 
-  public getUser(username: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${username}`)
-
-  }
 }

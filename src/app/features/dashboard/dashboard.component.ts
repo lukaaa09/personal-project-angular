@@ -15,10 +15,12 @@ export class DashboardComponent implements OnInit {
   constructor(private userservice: UserService, private router: Router) { }
   ngOnInit(): void {
     this.users = this.userservice.getAllUsers()
+    console.log(this.users)
 
   }
   public getAll() {
     this.users = this.userservice.getAllUsers()
+  
   }
 
   public shouldShowMore() {

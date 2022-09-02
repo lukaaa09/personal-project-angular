@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +11,10 @@ import { RegisterComponent } from './features/register/register.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { UserComponent } from './features/user/user.component';
 import { SearchComponent } from './features/search/search.component';
+import { GithubProfileComponent } from './features/github-profile/github-profile.component';
+import { GithubReposComponent } from './features/github-repos/github-repos.component';
+import { GithubProfileCardComponent } from './features/github-profile-card/github-profile-card.component';
+import { GithubProfileDataComponent } from './features/github-profile-data/github-profile-data.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,18 @@ import { SearchComponent } from './features/search/search.component';
     RegisterComponent,
     DashboardComponent,
     UserComponent,
-    SearchComponent
+    SearchComponent,
+    GithubProfileComponent,
+    GithubReposComponent,
+    GithubProfileCardComponent,
+    GithubProfileDataComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

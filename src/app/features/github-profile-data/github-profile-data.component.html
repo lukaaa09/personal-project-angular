@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+        <span>{{githubProfile.followers}} Followers</span>
+        <span>{{githubProfile.public_repos}} Repositories</span>
+        <span>{{githubProfile.public_gists}} Gists</span>
+        <span>{{githubProfile.following}} Following</span>
+    </div>
+    <div class="card-body">
+        <ul>
+            <li>
+                User Name: {{githubProfile.name}}
+            </li>
+            <li>
+                Location: {{githubProfile.location}}
+            </li>
+            <!-- <li>
+                E-mail: {{githubProfile.email}}
+            </li> -->
+            <li>
+                Company: {{githubProfile.company}}
+            </li>
+            <li>
+                 Blog: {{githubProfile.blog}}
+            </li>
+            <li>
+                Member Sience: {{githubProfile.created_at | date}}
+            </li>
+            <li>
+                Profile Url: {{githubProfile.html_url}}
+            </li>
+        </ul>
+    </div>
+</div>
