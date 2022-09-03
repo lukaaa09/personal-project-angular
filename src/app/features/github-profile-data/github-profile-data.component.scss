@@ -1,0 +1,39 @@
+.card {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+    
+    .followers {
+        padding: 3px;
+        background-color: rgb(58, 58, 202);
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-right: 10px
+    }
+    .repo {
+        padding: 3px;
+        background-color: rgb(80, 238, 45);
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-right: 10px
+    }
+    .gist {
+        padding: 3px;
+        background-color: #f7ff04;
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-right: 10px
+    }
+    .following {
+        padding: 3px;
+        background-color: rgb(255, 0, 0);
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-right: 10px
+    }
+}

@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class UserServiceService {
   baseUrl = 'http://localhost:3000'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
 
   public getAllUsers(){
@@ -18,5 +19,11 @@ export class UserServiceService {
   }
   public registerUser(user: any) {
     return this.http.post(`${this.baseUrl}/register`, user)
+  }
+
+  
+  logOutUser(){
+    localStorage.clear()
+    this.router.navigateByUrl('/').then()
   }
 }

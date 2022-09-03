@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  public githubUserQuery: string | undefined;
+  public githubProfile: any;
+  public githubRepos: any[] | undefined
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
   }
+  // public singleUser() {
+  //   this.searchService.getProfile(this.githubUserQuery).subscribe((data) => {
+  //     this.githubUserQuery = data
+  //   })
+  //   this.searchService.getRepos(this).subscribe((data) => {
+  //     this.githubRepos = data
+  //   })
+  // }
+
 
 }

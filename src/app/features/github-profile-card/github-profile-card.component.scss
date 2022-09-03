@@ -1,0 +1,32 @@
+.card{
+    width: 100%;
+    img{
+        height: 220px;
+        width: 220px;
+        margin-left: 25%;
+        margin-top: 25px;
+    }
+    .card-body{
+        width: 100%;
+
+
+        h3{
+            margin-left: 25%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 12px;
+        }
+        p{
+            margin-left: 25%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            width: 340px;
+            margin-bottom: 12px;
+
+        }
+        a{
+            margin-left: 25%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            color: rgb(28, 170, 125);
+        }
+    }
+}
