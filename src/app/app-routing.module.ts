@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { FavouriteListComponent } from './features/favourite-list/favourite-list.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
 import { SearchComponent } from './features/search/search.component';
 import { UserComponent } from './features/user/user.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -25,12 +27,20 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'user',
+    path: 'user/:username',
     component: UserComponent
   },
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'favourite',
+    component: FavouriteListComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

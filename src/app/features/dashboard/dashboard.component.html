@@ -2,16 +2,15 @@
     <div class="content">
         <!-- <img src="../../../assets/githhub img.png" alt=""> -->
         <span>Dashboard</span>
-        <span>Favourites</span>
+        <span (click)="navigateToFav()">Favourites</span>
         <span (click)="navigateToSearch()">Search</span>
-        <span (click)="logOut()">Log out</span>
     </div>
 </div>
 <div class="mid-container">
-    <div class="users" *ngIf="users">
-        <div class="user" *ngFor="let user of users | async">
-            <img (click)="singleUser()" src="{{user.avatar_url}}" alt="">
-            <span (click)="getUserPage()">Username: {{user.login}}</span>
+    <div class="users">
+        <div class="user" *ngFor="let user of githubUsers | async">
+                <img (click)="getUserPage(user.login)" src="{{user.avatar_url}}" alt="">
+                <span (click)="getUserPage(user.login)" >Username: {{user.login}}</span>
             <a href="https://github.com/{{user.login}}"> Go to the github page</a>
         </div>
     </div>

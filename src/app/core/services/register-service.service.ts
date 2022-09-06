@@ -14,6 +14,7 @@ export class UserServiceService {
   public getAllUsers(){
     return this.http.get(`${this.baseUrl}/user`)
   }
+
   public loginuser(user: any) {
     return this.http.post(`${this.baseUrl}/login`, user)
   }
@@ -21,9 +22,4 @@ export class UserServiceService {
     return this.http.post(`${this.baseUrl}/register`, user)
   }
 
-  
-  logOutUser(){
-    localStorage.clear()
-    this.router.navigateByUrl('/').then()
-  }
 }

@@ -1,0 +1,29 @@
+div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+
+        color: red;
+        font-size: 45px;
+    }
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    button {
+        background-color: blue;
+        margin-top: 30px;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        width: 80px;
+        height: 40px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="header-container">
+    <ul class="nav-container">
+      <li routerLink="/dashboard" *ngIf="!(isUserLoggedIn | async)" routerLinkActive="activeLink">Dashboard</li>
+      <li routerLink="/users/:username" *ngIf="isUserLoggedIn | async" routerLinkActive="activeLink">Users</li>
+      <li routerLink="/favourites" *ngIf="(isUserLoggedIn | async)"  routerLinkActive="activeLink">
+        favourites</li>
+      <li routerLink="/search" routerLinkActive="activeLink">Search</li>
+    </ul>
+    <button (click)="logOut()" *ngIf="isUserLoggedIn | async">Logout</button>
+  </div>

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { UserServiceService } from 'src/app/core/services/register-service.service';
 import { SearchService } from 'src/app/core/services/search.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -12,7 +13,8 @@ import { UserService } from 'src/app/core/services/user.service';
 
 })
 export class DashboardComponent implements OnInit {
-  users: any;
+  public username: any
+  public githubUsers: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public githubUserQuery: string | undefined;
   public githubProfile: any;
   public githubRepos: any[] | undefined
@@ -23,41 +25,25 @@ export class DashboardComponent implements OnInit {
     private register: UserServiceService
   ) { }
   ngOnInit(): void {
-    this.users = this.userservice.getAllUsers()
-    console.log(this.users)
+    this.userservice.getAllUsers().subscribe(users => {
+      this.githubUsers.next(users)
+    })
 
   }
-  public getAll() {
-    this.users = this.userservice.getAllUsers()
+  public getUserPage(username: any) {
+    this.router.navigateByUrl(`/user/${username}`).then()
 
   }
-
   public shouldShowMore() {
     this.userservice.pageLimit += 10;
-    this.getAll()
+    this.userservice.getAllUsers().subscribe(users => {
+      this.githubUsers.next(users)
+    })
   }
-
-  public getUserPage() {
-    this.router.navigateByUrl('/user').then()
-
-  }
-
   public navigateToSearch() {
     this.router.navigateByUrl('/search').then()
-
   }
-  public singleUser() {
-    this.searchService.getProfile(this.githubUserQuery).subscribe((data) => {
-      this.githubProfile = data
-      console.log(this.githubProfile)
-    })
-    this.searchService.getRepos(this.githubUserQuery).subscribe((data) => {
-      this.githubRepos = data
-      console.log(this.githubRepos)
-    })
-  }
-
-  public logOut() {
-    this.register.logOutUser()
+  public navigateToFav() {
+    this.router.navigateByUrl('/favourite').then()
   }
 }

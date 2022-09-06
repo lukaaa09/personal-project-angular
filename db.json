@@ -26,6 +26,15 @@
       "confirmPassword": "lukaluka",
       "username": "lukks15",
       "id": 3
+    },
+    {
+      "email": "lklk@gmail.com",
+      "password": "$2a$10$3LxUpAbe4d5kC6gZWdVRROBrFQkq.iWkVw5TIAYKeLGUsSXxtTNFy",
+      "name": "NARUTO",
+      "lastName": "dsasafasf",
+      "confirmPassword": "lukaluka",
+      "username": "likksdja",
+      "id": 4
     }
   ]
 }

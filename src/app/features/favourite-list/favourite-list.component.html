@@ -1,9 +1,9 @@
-<div class="user" *ngIf="(currentGithubUser | async) as user">
+<div class="user" *ngFor="let user of arr, index as i">
     <img src="{{user.avatar_url}}" alt="">
-    <span class="login">Useraneme: {{user.login}}</span>
+    <span class="login">Username: {{user.login}}</span>
     <span class="followers">Followers: {{user.followers}}</span>
     <span class="following">Following: {{user.following}}</span>
     <span class="bio">bio: {{user.bio}}</span>
     <span class="name">Name: {{user.name}}</span>
-    <button (click)="saveData()" class="fav">Add To Favourites</button>
+    <button (click)="deleteUser(i)" class="fav">Delete User</button>
 </div>

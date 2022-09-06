@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,23 @@ import { Observable } from 'rxjs';
 export class UserService {
   apiUrl = 'https://api.github.com/users'
   pageLimit = 10
-  constructor(private http: HttpClient) { }
+  isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  public getAllUsers() {
-    return this.http.get(`${this.apiUrl}?per_page=${this.pageLimit}`)
+  constructor(private http: HttpClient, private router: Router) { }
+
+  public getAllUsers(): Observable<any[]> {
+    return this.http.get<[]>(`${this.apiUrl}?per_page=${this.pageLimit}`)
+  }
+  
+  public getUsers(username: any): Observable <{}>{
+    return this.http.get<{}>(`${this.apiUrl}/${username}`)
+  }
+  public getFavourite(username: any){
+    return this.http.get(`${this.apiUrl}/${username}`)
+  }
+  logOutUser(){
+    localStorage.clear()
+    this.router.navigateByUrl('/').then()
   }
 
 
