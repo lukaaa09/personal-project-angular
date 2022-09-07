@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   public githubUserQuery: string | undefined;
   public githubProfile: any;
   public githubRepos: any[] | undefined
+  public getUser = localStorage.getItem('username')
 
   constructor(private userservice: UserService,
     private router: Router,

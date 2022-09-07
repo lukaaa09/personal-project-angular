@@ -15,9 +15,9 @@ import { GithubProfileComponent } from './features/github-profile/github-profile
 import { GithubReposComponent } from './features/github-repos/github-repos.component';
 import { GithubProfileCardComponent } from './features/github-profile-card/github-profile-card.component';
 import { GithubProfileDataComponent } from './features/github-profile-data/github-profile-data.component';
-import { FavouriteListComponent } from './features/favourite-list/favourite-list.component';
 import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+// import { FavouriteListComponent } from './features/favourite/favourite-list/favourite-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     GithubReposComponent,
     GithubProfileCardComponent,
     GithubProfileDataComponent,
-    FavouriteListComponent,
+    // FavouriteListComponent,
     TopBarComponent,
     NotFoundComponent,
   ],

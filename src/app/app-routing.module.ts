@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { FavouriteListComponent } from './features/favourite-list/favourite-list.component';
+import { FavouriteListComponent } from './features/favourite/favourite-list/favourite-list.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
 import { SearchComponent } from './features/search/search.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent  
   },
   {
     path: 'user/:username',
@@ -36,8 +36,12 @@ const routes: Routes = [
   },
   {
     path: 'favourite',
-    component: FavouriteListComponent
+    loadChildren: () => import('./features/favourite/favourite.module').then(m => m.FavouriteModule)
   },
+  // {
+  //   path: 'favourtie',
+  //   component: FavouriteListComponent
+  // },
   {
     path: '**',
     component: NotFoundComponent

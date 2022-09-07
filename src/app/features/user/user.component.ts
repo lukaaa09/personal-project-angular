@@ -21,8 +21,8 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.currentUserName = this.actevatedroute.snapshot.paramMap.get('username')
     this.singleUser()
-    if (localStorage.getItem('token')) {
-      this.arr = JSON.parse(localStorage.getItem('token')!)
+    if (localStorage.getItem('favorite')) {
+      this.arr = JSON.parse(localStorage.getItem('favorite')!)
     }
   }
   public singleUser() {
@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
   }
   public saveData() {
     this.arr.push(this.currentGithubUser.getValue())
-    localStorage.setItem('token', JSON.stringify(this.arr))
+    localStorage.setItem('favorite', JSON.stringify(this.arr))
   }
 
 }

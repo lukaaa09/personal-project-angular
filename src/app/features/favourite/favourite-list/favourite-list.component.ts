@@ -8,21 +8,21 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class FavouriteListComponent implements OnInit {
 
-  arr: any 
+  arr: any
   constructor() { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')) {
-      this.arr = JSON.parse(localStorage.getItem('token')!)
+    if (localStorage.getItem('favorite')) {
+      this.arr = JSON.parse(localStorage.getItem('favorite')!)
     }
   }
-  deleteUser(index: any) {
+  deleteUser(id: string) {
     let z = confirm("Are you Sure?");
     if (z) {
-      this.arr.splice(index, 1);
+      this.arr = this.arr.filter((user: any) => user.id !== id)
     }
-    localStorage.clear()
+    localStorage.setItem('favorite', JSON.stringify(this.arr))
   }
-  
+
 
 }
