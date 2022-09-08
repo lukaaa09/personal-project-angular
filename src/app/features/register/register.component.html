@@ -31,11 +31,11 @@
                 <p *ngIf="password.errors['pattern']">password should contain only english characters or numbers</p>
     
             </ng-container>
-            <label for="password">Confirmpassword:</label>
-            <input type="password" class="form-control" id="password" name="password" formControlName="confirmPassword">
-            <ng-container *ngIf="confirmPassword.touched && confirmPassword.errors">
-                <p *ngIf="confirmPassword.errors['required']">required field</p>
-                <p *ngIf="confirmPassword.errors['passwordValidator']">password and cofirm password should be same</p>
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="password" formControlName="confirmPassword">
+            <ng-container *ngIf="confirmPassword.touched">
+                <p *ngIf="confirmPassword.errors?.['required']">required field</p>
+                <p *ngIf="register.errors?.['noMatch']">password and confirm password should be same</p>
             </ng-container>
             <label for="username">Username:</label>
             <input type="text" class="form-control" id="username" name="username" formControlName="username">

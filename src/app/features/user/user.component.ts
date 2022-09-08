@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, switchMap, tap } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -11,11 +11,11 @@ import { UserService } from 'src/app/core/services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent implements OnInit {
-
   public currentUserName: string | null = ''
   public currentGithubUser: BehaviorSubject<any> = new BehaviorSubject<{}>({});
   public user: any
   public arr: any[] = []
+  public userRepositories: any[] = []
   constructor(private userservice: UserService, private actevatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,8 +26,17 @@ export class UserComponent implements OnInit {
     }
   }
   public singleUser() {
-    this.userservice.getUsers(this.currentUserName).subscribe((data) => {
-      this.currentGithubUser.next(data)
+    this.userservice.getUsers(this.currentUserName).pipe(
+      switchMap((data: any): any => {
+        this.currentGithubUser.next(data)
+        this.getUserRepositories(data)
+      })
+    ).subscribe()
+  }
+  public getUserRepositories(userData: any) {
+    this.userservice.getRepos(userData.repos_url).subscribe((repos: any) => {
+      this.userRepositories = repos;
+      console.log(repos)
     })
   }
   public saveData() {

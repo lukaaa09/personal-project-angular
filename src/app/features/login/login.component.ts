@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
     this.userservice.loginuser(this.loginForm.value).pipe(
       tap((response: any) => {
         console.log(response)
-        localStorage.setItem('token', response.accessToken),
+        localStorage.setItem('token', response.accessToken)
         localStorage.setItem('username', response.user.username)
+        this.userservice.isLoggedIn.next(true)
         this.router.navigateByUrl('/dashboard').then()
 
       }),

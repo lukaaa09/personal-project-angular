@@ -1,4 +1,4 @@
-<div class="user" *ngIf="(currentGithubUser | async) as user">
+<div class="user"  *ngIf="(currentGithubUser | async) as user">
     <img src="{{user.avatar_url}}" alt="">
     <span class="login">Useraneme: {{user.login}}</span>
     <span class="followers">Followers: {{user.followers}}</span>
@@ -7,3 +7,8 @@
     <span class="name">Name: {{user.name}}</span>
     <button (click)="saveData()" class="fav">Add To Favourites</button>
 </div>
+<ng-container *ngFor="let repos of userRepositories">
+    <a [href]="repos.html_url">{{repos.name}}</a>
+    <span>{{repos.name}} Stars</span>
+    <span>{{repos.watchers_count}} Watchers</span>
+</ng-container>

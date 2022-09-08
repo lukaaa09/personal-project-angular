@@ -1,10 +1,14 @@
-<div class="header-container">
-    <ul class="nav-container">
-      <li routerLink="/dashboard" *ngIf="!(isUserLoggedIn | async)" routerLinkActive="activeLink">Dashboard</li>
-      <li routerLink="/users/:username" *ngIf="isUserLoggedIn | async" routerLinkActive="activeLink">Users</li>
-      <li routerLink="/favourites" *ngIf="(isUserLoggedIn | async)"  routerLinkActive="activeLink">
-        favourites</li>
-      <li routerLink="/search" routerLinkActive="activeLink">Search</li>
-    </ul>
-    <button (click)="logOut()" *ngIf="isUserLoggedIn | async">Logout</button>
+<div class="header">
+  <img src="../../../assets/github_original_wordmark_logo_icon_146506.png" alt="">
+  <div>
+    <span routerLink="/dashboard" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">Dashboard</span>
+    <!-- <li routerLink="/users/:username" *ngIf="isUserLoggedIn | async" routerLinkActive="activeLink">Users</li> -->
+    <span routerLink="/favourite" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">
+      favourites</span>
+    <span routerLink="/search" routerLinkActive="activeLink">Search</span>
   </div>
+  <div class="user-container">
+    <span class="user">Hello, {{getUser}}</span>
+    <button class="logOut" (click)="logOut()" *ngIf="isUserLoggedIn | async">Logout</button>
+  </div>
+</div>
