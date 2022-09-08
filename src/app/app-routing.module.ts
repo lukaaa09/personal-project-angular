@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LogOutGuard } from './core/guards/log-out.guard';
 import { LoginGuard } from './core/guards/login.guard';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { FavouriteListComponent } from './features/favourite/favourite-list/favourite-list.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
 import { SearchComponent } from './features/search/search.component';
-import { UserComponent } from './features/user/user.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
@@ -24,32 +21,29 @@ const routes: Routes = [
   {
     path: 'register',
     canActivate: [LoginGuard],
-    component: RegisterComponent
+    component: RegisterComponent  
   },
   {
     path: 'dashboard',
     canActivate: [LogOutGuard],
-    component: DashboardComponent  
+    loadChildren: () => import('./features/dashboard/dashboard/dashboard.module').then(m => m.DashboardModule)  
   },
   {
     path: 'user/:username',
     canActivate: [LogOutGuard],
-    component: UserComponent
+    loadChildren: () => import('./features/user/user/user.module').then(m => m.UserModule)  
   },
   {
     path: 'search',
     canActivate: [LogOutGuard],
     component: SearchComponent
+    // loadChildren: () => import('./features/search/search/search.module').then(m => m.SearchModule)
   },
   {
     path: 'favourite',
     canActivate: [LogOutGuard],
     loadChildren: () => import('./features/favourite/favourite.module').then(m => m.FavouriteModule)
   },
-  // {
-  //   path: 'favourtie',
-  //   component: FavouriteListComponent
-  // },
   {
     path: '**',
     component: NotFoundComponent

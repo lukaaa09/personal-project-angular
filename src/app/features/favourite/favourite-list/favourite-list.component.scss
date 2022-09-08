@@ -1,74 +1,124 @@
-.user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
+body {
+    min-height: 100vh;
+    background: #0c192c;
 
-    img {
-        width: 220px;
-        height: 220px;
-        margin-bottom: 10px;
-
+    .container {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
     }
 
-    span {
-        font-size: 20px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: white;
+    .bubbles {
+        position: relative;
+        display: flex;
+
+        span {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background: #4fc3dc;
+            margin: 0 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px #4fc3dc44,
+                0 0 50px #4fc3dc,
+                0 0 100px #4fc3dc;
+            animation: animate 15s linear infinite;
+            animation-duration: calc(125s / var(--i));
+        }
+
+        span:nth-child(even) {
+            background: #ff2d75;
+            box-shadow: 0 0 0 10px #ff2d7544,
+                0 0 50px #ff2d7544,
+                0 0 100px #ff2d7544;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(100vh) scale(0);
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+            }
+        }
     }
 
-    .login {
-        background-color: red;
-        margin-bottom: 10px;
-        border-radius: 7px;
-        margin-bottom: 10px;
-        padding: 7px;
-    }
+    .user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
 
-    .followers {
-        background-color: rgb(191, 255, 0);
-        border-radius: 7px;
-        margin-bottom: 10px;
-        padding: 7px;
+        img {
+            width: 220px;
+            height: 220px;
+            margin-bottom: 10px;
 
+        }
 
-    }
+        span {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+        }
 
-    .following {
-        background-color: rgb(55, 0, 255);
-        margin-bottom: 10px;
-        border-radius: 7px;
-        padding: 7px;
+        .login {
+            background-color: red;
+            margin-bottom: 10px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            padding: 7px;
+        }
 
-    }
-
-    .bio {
-        background-color: rgb(13, 255, 0);
-        border-radius: 7px;
-        margin-bottom: 10px;
-        padding: 7px;
-
-
-    }
-    .name {
-        background-color: rgb(96, 99, 96);
-        margin-bottom: 10px;
-        border-radius: 7px;
-        padding: 7px;
-
-    }
-    .fav {
-        background-color: rgb(255, 0, 221);
-        margin-bottom: 10px;
-        border-radius: 7px;
-        padding: 7px;
-        font-size: 20px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: white;
-        cursor: pointer;
-        border: none;
+        .followers {
+            background-color: rgb(191, 255, 0);
+            border-radius: 7px;
+            margin-bottom: 10px;
+            padding: 7px;
 
 
+        }
+
+        .following {
+            background-color: rgb(55, 0, 255);
+            margin-bottom: 10px;
+            border-radius: 7px;
+            padding: 7px;
+
+        }
+
+        .bio {
+            background-color: rgb(13, 255, 0);
+            border-radius: 7px;
+            margin-bottom: 10px;
+            padding: 7px;
+
+
+        }
+
+        .name {
+            background-color: rgb(96, 99, 96);
+            margin-bottom: 10px;
+            border-radius: 7px;
+            padding: 7px;
+
+        }
+
+        .fav {
+            background-color: rgb(255, 0, 221);
+            margin-bottom: 10px;
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+            cursor: pointer;
+            border: none;
+
+
+        }
     }
 }

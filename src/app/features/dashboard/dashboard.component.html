@@ -1,22 +1,12 @@
-<!-- <div class="header">
-    <div class="content">
-        <img src="../../../assets/githhub img.png" alt="">
-        <span>Dashboard</span>
-        <span (click)="navigateToFav()">Favourites</span>
-        <span (click)="navigateToSearch()">Search</span>
-        <span>Hello {{getUser}}</span>
-    </div>
-</div> -->
-<div class="mid-container">
-    <div class="users">
-        <div class="user" *ngFor="let user of githubUsers | async">
+<body>
+    <div class="mid-container">
+        <div class="users">
+            <div class="user" *ngFor="let user of githubUsers | async">
                 <img (click)="getUserPage(user.login)" src="{{user.avatar_url}}" alt="">
-                <span (click)="getUserPage(user.login)" >Username: {{user.login}}</span>
-            <a href="https://github.com/{{user.login}}"> Go to the github page</a>
+                <span (click)="getUserPage(user.login)">Username: {{user.login}}</span>
+                <a href="https://github.com/{{user.login}}"> Go to the github page</a>
+            </div>
         </div>
+        <button (click)="shouldShowMore()">Load More</button>
     </div>
-    <button (click)="shouldShowMore()">Load More</button>
-
-</div>
-
-
+</body>

@@ -1,20 +1,44 @@
-.card{
-    display: flex;
+section{
+    width: 100%;
+    min-height: 100vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #240d30, #6e0e33, #0d086c, #11624f);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 10s ease-in-out infinite;
 
-    input{
-        width: 240px;
-        height: 30px;
-        margin-top: 30px;
-        margin-left: 40%;
+
+    @keyframes change {
+        0%{
+            background-position: 0 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0 50%;
+        }
+        
+        
     }
-    button{
-        width: 90px;
-        height: 30px;
-        margin-left: 10px;
-        border: none;
-        border-radius: 7px;
-        background-color: #bd27b8;
-        color: white;
-        cursor: pointer;
+    .card{
+        display: flex;
+    
+        input{
+            width: 240px;
+            height: 30px;
+            margin-top: 30px;
+            margin-left: 40%;
+        }
+        button{
+            width: 90px;
+            height: 30px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 7px;
+            background-color: #bd27b8;
+            color: white;
+            cursor: pointer;
+        }
     }
 }

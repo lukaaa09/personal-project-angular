@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   public currentGithubUser: BehaviorSubject<any> = new BehaviorSubject<{}>({});
   public user: any
   public arr: any[] = []
-  public userRepositories: any[] = []
+  public userRepositories: BehaviorSubject<any> = new BehaviorSubject<[]>([]);
   constructor(private userservice: UserService, private actevatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -35,8 +35,7 @@ export class UserComponent implements OnInit {
   }
   public getUserRepositories(userData: any) {
     this.userservice.getRepos(userData.repos_url).subscribe((repos: any) => {
-      this.userRepositories = repos;
-      console.log(repos)
+      this.userRepositories.next(repos)
     })
   }
   public saveData() {

@@ -1,23 +1,26 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
+// import { NgxSpinnerService } from 'ngx-spinner/public_api';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class SearchComponent implements OnInit {
   public githubUserQuery: string | undefined;
-  public githubProfile: any;
-  public githubRepos: any[] | undefined;
+  public githubProfile: Subject<any> = new Subject<any>()
+  public githubRepos: Subject <any> = new Subject<any>()
   public errorMessage: string | undefined;
 
 
 
-  constructor(private router: Router, private userservice: SearchService) { }
+  constructor(private router: Router, private userservice: SearchService,
+      ) { }
 
   ngOnInit(): void {
   }
@@ -25,13 +28,14 @@ export class SearchComponent implements OnInit {
     this.router.navigateByUrl('/dashboard').then()
   }
   public searchUser() {
+    // this.NgxSpinner.show()
     this.userservice.getProfile(this.githubUserQuery).subscribe((data) => {
-      this.githubProfile = data
+      this.githubProfile.next(data)
     });
     this.userservice.getRepos(this.githubUserQuery).subscribe((data) => {
-      this.githubRepos = data
+      this.githubRepos.next(data)
+      // this.NgxSpinner.hide()
       console.log(this.githubRepos)
-
     })
   }
 
