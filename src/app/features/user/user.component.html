@@ -1,12 +1,17 @@
 <div class="user"  *ngIf="(currentGithubUser | async) as user">
     <img src="{{user.avatar_url}}" alt="">
-    <span class="login">Useraneme: {{user.login}}</span>
-    <span class="followers">Followers: {{user.followers}}</span>
-    <span class="following">Following: {{user.following}}</span>
-    <span class="bio">bio: {{user.bio}}</span>
-    <span class="name">Name: {{user.name}}</span>
-    <button (click)="saveData()" class="fav">Add To Favourites</button>
+    <div class="details">
+        <h3>User Details</h3>
+        <span class="login">Useraneme: {{user.login}}</span>
+        <span class="followers">Followers: {{user.followers}}</span>
+        <span class="following">Following: {{user.following}}</span>
+        <span class="bio">bio: {{user.bio}}</span>
+        <span class="name">Name: {{user.name}}</span>
+    </div>
+  
 </div>
+    <button (click)="saveData()" class="fav">Add To Favourites</button>
+
 <ng-container *ngFor="let repos of userRepositories">
     <a [href]="repos.html_url">{{repos.name}}</a>
     <span>{{repos.name}} Stars</span>

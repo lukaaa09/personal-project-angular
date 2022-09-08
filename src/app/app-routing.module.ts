@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LogOutGuard } from './core/guards/log-out.guard';
+import { LoginGuard } from './core/guards/login.guard';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { FavouriteListComponent } from './features/favourite/favourite-list/favourite-list.component';
 import { LoginComponent } from './features/login/login.component';
@@ -16,26 +18,32 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [LoginGuard],
     component: LoginComponent
   },
   {
     path: 'register',
+    canActivate: [LoginGuard],
     component: RegisterComponent
   },
   {
     path: 'dashboard',
+    canActivate: [LogOutGuard],
     component: DashboardComponent  
   },
   {
     path: 'user/:username',
+    canActivate: [LogOutGuard],
     component: UserComponent
   },
   {
     path: 'search',
+    canActivate: [LogOutGuard],
     component: SearchComponent
   },
   {
     path: 'favourite',
+    canActivate: [LogOutGuard],
     loadChildren: () => import('./features/favourite/favourite.module').then(m => m.FavouriteModule)
   },
   // {

@@ -35,6 +35,24 @@
       "confirmPassword": "lukaluka",
       "username": "likksdja",
       "id": 4
+    },
+    {
+      "email": "luks@gmail.com",
+      "password": "$2a$10$E9OMImEa5E2C1oIBpj9oduydpz9Yu1bdjq0OFngVRn/tEXHkOujxe",
+      "name": "ლუკა",
+      "lastName": "კურტანიძე",
+      "confirmPassword": "12345678",
+      "username": "ლუკკს09",
+      "id": 5
+    },
+    {
+      "email": "kurtanidze@gma",
+      "password": "$2a$10$RcSJkjzAr4v1HZljZfhC0OqFYIO.kdSnDuY7MO2JMUHx0iUHHL95y",
+      "name": "lela",
+      "lastName": "kurtanidze",
+      "confirmPassword": "1234567",
+      "username": "fjjjjj",
+      "id": 6
     }
   ]
 }
