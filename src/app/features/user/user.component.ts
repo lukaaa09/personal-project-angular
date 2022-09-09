@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   public user: any
   public arr: any[] = []
   public userRepositories: BehaviorSubject<any> = new BehaviorSubject<[]>([]);
+  num = 0
   constructor(private userservice: UserService, private actevatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class UserComponent implements OnInit {
   public singleUser() {
     this.userservice.getUsers(this.currentUserName).pipe(
       switchMap((data: any): any => {
+        console.log(data)
         this.currentGithubUser.next(data)
         this.getUserRepositories(data)
       })
@@ -44,6 +46,7 @@ export class UserComponent implements OnInit {
       this.arr.push(this.currentGithubUser.getValue())
     }
     localStorage.setItem('favorite', JSON.stringify(this.arr))
+    this.num++
   }
 
 }

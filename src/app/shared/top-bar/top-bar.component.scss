@@ -1,56 +1,256 @@
-.header {
+@media screen and (max-width: 1920px) and (min-width: 1024px) {
+    .header {
 
-    width: 100%;
-    height: 100px;
-    background-color: #283176;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-        width: 55px;
-        height: 55px;
-        margin-right: 18%;
-        cursor: pointer;
-    }
-    .activeLink {
-        color: red;
-        font-size: 30px
-    }
-
-    span {
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: larger;
-    }
-
-    span:hover {
-        background-color: white;
-        border-radius: 20px;
-        color: black;
-    }
-
-    .user-container {
+        width: 100%;
+        height: 100px;
+        background-color: #283176;
         display: flex;
-        flex-direction: column;
-        margin-left: 17%;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 55px;
+            height: 55px;
+            margin-right: 18%;
+            cursor: pointer;
+        }
+
+        .activeLink {
+            color: red;
+            font-size: 30px
+        }
+
+        span {
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: larger;
+        }
+
+        span:hover {
+            background-color: white;
+            border-radius: 20px;
+            color: black;
+        }
+
+        .user-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 17%;
+        }
+
+        .logOut {
+            background-color: rgba(30, 30, 103, .58);
+            border: transparent;
+            color: #fff;
+            cursor: pointer;
+            height: 25px;
+            width: 80px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        .logOut:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .header {
+
+        width: 100%;
+        height: 100px;
+        background-color: #283176;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: none;
+        }
+
+        .col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-right: 80px;
+        }
+
+        .line1 {
+            background-color: white;
+            width: 29px;
+            height: 3px;
+            flex-direction: column;
+        }
+
+        .line3 {
+            background-color: white;
+            flex-direction: column;
+
+            width: 29px;
+            height: 3px;
+        }
+
+        .line2 {
+            background-color: white;
+            flex-direction: column;
+            width: 29px;
+            height: 3px;
+        }
+
+        .activeLink {
+            color: red;
+            font-size: 30px
+        }
+
+        span {
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: larger;
+        }
+
+        span:hover {
+            background-color: white;
+            border-radius: 20px;
+            color: black;
+        }
+
+        .user-container {
+            display: flex;
+        }
+
+        .user {
+            margin-top: 6px;
+        }
+
+        .logOut {
+            background-color: rgba(30, 30, 103, .58);
+            border: transparent;
+            color: #fff;
+            cursor: pointer;
+            height: 25px;
+            width: 80px;
+            border-radius: 5px;
+            margin-top: 16px
+        }
+
+        .logOut:hover {
+            background-color: white;
+            color: black;
+        }
     }
 
-    .logOut {
-        background-color: rgba(30, 30, 103, .58);
-        border: transparent;
-        color: #fff;
-        cursor: pointer;
-        height: 25px;
-        width: 80px;
-        border-radius: 5px;
-        margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .header {
+
+        width: 100%;
+        height: 100px;
+        background-color: #283176;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            display: none;
+        }
+
+        .col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-right: 20px;
+        }
+
+        .line1 {
+            background-color: white;
+            width: 29px;
+            height: 3px;
+            flex-direction: column;
+        }
+
+        .line3 {
+            background-color: white;
+            flex-direction: column;
+
+            width: 29px;
+            height: 3px;
+        }
+
+        .line2 {
+            background-color: white;
+            flex-direction: column;
+            width: 29px;
+            height: 3px;
+        }
+        .dash{
+            margin-right: 18px;
+            margin-top: 14px;
+        }
+        .fav{
+            margin-top: -12px;
+        }
+        .search{
+            position: relative;
+            bottom: 12px;
+        }
+
+        .activeLink {
+            color: red;
+            font-size: 20px
+        }
+
+        span {
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: larger;
+        }
+
+
+        span:hover {
+            background-color: white;
+            border-radius: 20px;
+            color: black;
+        }
+
+        .user-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px
+        }
+
+        .user {
+            margin-top: 6px;
+        }
+
+        .logOut {
+            background-color: rgba(30, 30, 103, .58);
+            border: transparent;
+            color: #fff;
+            cursor: pointer;
+            height: 25px;
+            width: 80px;
+            border-radius: 5px;
+            margin-left: 7px
+        }
+
+        .logOut:hover {
+            background-color: white;
+            color: black;
+        }
     }
 
-    .logOut:hover {
-        background-color: white;
-        color: black;
-    }
 }

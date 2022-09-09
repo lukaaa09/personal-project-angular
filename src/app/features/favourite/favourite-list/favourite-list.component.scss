@@ -45,80 +45,107 @@ body {
         }
     }
 
-    .user {
+    h3 {
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: 40%;
+    }
+
+    .mid-container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 20px;
 
-        img {
-            width: 220px;
-            height: 220px;
-            margin-bottom: 10px;
-
+        .users {
+            margin-top: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 80%;
+            gap: 35px;
         }
 
-        span {
-            font-size: 20px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: white;
-        }
-
-        .login {
-            background-color: red;
-            margin-bottom: 10px;
-            border-radius: 7px;
-            margin-bottom: 10px;
-            padding: 7px;
-        }
-
-        .followers {
-            background-color: rgb(191, 255, 0);
-            border-radius: 7px;
-            margin-bottom: 10px;
-            padding: 7px;
+        .user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            background-color: aqua;
+            padding: 17px;
+            border-radius: 5px;
 
 
-        }
+            img {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 5px;
 
-        .following {
-            background-color: rgb(55, 0, 255);
-            margin-bottom: 10px;
-            border-radius: 7px;
-            padding: 7px;
+            }
 
-        }
+            span {
+                font-size: 16px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: white;
+            }
 
-        .bio {
-            background-color: rgb(13, 255, 0);
-            border-radius: 7px;
-            margin-bottom: 10px;
-            padding: 7px;
+            .login {
+                background-color: red;
+                margin-bottom: 10px;
+                border-radius: 7px;
+                margin-bottom: 10px;
+                padding: 7px;
+            }
 
-
-        }
-
-        .name {
-            background-color: rgb(96, 99, 96);
-            margin-bottom: 10px;
-            border-radius: 7px;
-            padding: 7px;
-
-        }
-
-        .fav {
-            background-color: rgb(255, 0, 221);
-            margin-bottom: 10px;
-            border-radius: 7px;
-            padding: 7px;
-            font-size: 20px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: white;
-            cursor: pointer;
-            border: none;
+            .followers {
+                background-color: rgb(191, 255, 0);
+                border-radius: 7px;
+                margin-bottom: 10px;
+                padding: 7px;
 
 
+            }
+
+            .following {
+                background-color: rgb(55, 0, 255);
+                margin-bottom: 10px;
+                border-radius: 7px;
+                padding: 7px;
+
+            }
+
+            .bio {
+                background-color: rgb(13, 255, 0);
+                border-radius: 7px;
+                margin-bottom: 10px;
+                padding: 7px;
+
+
+            }
+
+            .name {
+                background-color: rgb(96, 99, 96);
+                margin-bottom: 10px;
+                border-radius: 7px;
+                padding: 7px;
+
+            }
+
+            .fav {
+                background-color: rgb(255, 0, 221);
+                margin-bottom: 10px;
+                border-radius: 7px;
+                padding: 7px;
+                font-size: 20px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: white;
+                cursor: pointer;
+                border: none;
+
+
+            }
         }
     }
 }

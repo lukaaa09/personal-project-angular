@@ -8,17 +8,14 @@
         </div>
         <div class="card-body">
             <form (submit)="searchUser()">
-                <div class="form-group">
-                    <input [(ngModel)]="githubUserQuery" name="user" type="search" class="form-control"
-                        placeholder="Github User">
-                    <!-- </div>
-                            {{githubUserQuery}}
-                            <div> -->
-                    <input type="submit" value="Search">
-                </div>
+                <input [(ngModel)]="githubUserQuery" name="user" type="search" class="form-control"
+                    placeholder="Github User">
+                <input type="submit" value="Search">
             </form>
         </div>
     </div>
-    <app-github-profile [githubProfile]="githubProfile | async"></app-github-profile>
+    <div class="user-data">
+        <app-github-profile [githubProfile]="githubProfile | async"></app-github-profile>
+    </div>
     <app-github-repos [githubRepos]="githubRepos | async"></app-github-repos>
 </section>

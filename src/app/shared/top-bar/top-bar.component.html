@@ -1,11 +1,16 @@
 <div class="header">
   <img routerLink="/dashboard" src="../../../assets/github_original_wordmark_logo_icon_146506.png" alt="">
-  <div>
-    <span routerLink="/dashboard" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">Dashboard</span>
+  <div class="col-1">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+  <div class="content">
+    <span class="dash" routerLink="/dashboard" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">Dashboard</span>
     <!-- <li routerLink="/users/:username" *ngIf="isUserLoggedIn | async" routerLinkActive="activeLink">Users</li> -->
-    <span routerLink="/favourite" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">
+    <span class="fav" routerLink="/favourite" *ngIf="(isUserLoggedIn | async)" routerLinkActive="activeLink">
       favourites</span>
-    <span routerLink="/search" routerLinkActive="activeLink">Search</span>
+    <span class="search" routerLink="/search" routerLinkActive="activeLink">Search</span>
   </div>
   <div class="user-container">
     <span class="user">Hello, {{getUser}}</span>

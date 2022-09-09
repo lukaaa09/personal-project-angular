@@ -31,12 +31,20 @@ export class SearchComponent implements OnInit {
     // this.NgxSpinner.show()
     this.userservice.getProfile(this.githubUserQuery).subscribe((data) => {
       this.githubProfile.next(data)
-    });
+    }, (error) => {
+      this.errorMessage = error
+      console.log(error)
+    }
+    );
     this.userservice.getRepos(this.githubUserQuery).subscribe((data) => {
       this.githubRepos.next(data)
       // this.NgxSpinner.hide()
       console.log(this.githubRepos)
-    })
+    }, (error) => {
+      this.errorMessage = error
+      // console.log(error)
+    }
+    )
   }
 
 }
