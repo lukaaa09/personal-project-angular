@@ -12,10 +12,8 @@
   
 </div>
 <h1>Github Repositories</h1>
-<ng-container *ngFor="let repos of userRepositories | async">
-    <div class="repos">
+    <div class="repos" *ngFor="let repos of userRepositories | async" >
         <a [href]="repos.html_url">Name: {{repos.name}}</a>
-        <span>{{repos.stargazers_count}}Stars:</span>
-        <span>{{repos.watchers_count}} Watchers:</span>
+        <span class="stars">Stars: {{repos.stargazers_count}}</span>
+        <span class="watchers">Watchers {{repos.watchers_count}} </span>
     </div>
-</ng-container>

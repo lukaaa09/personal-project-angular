@@ -39,7 +39,10 @@ export class UserComponent implements OnInit {
     })
   }
   public saveData() {
-    this.arr.push(this.currentGithubUser.getValue())
+    let z = confirm('Are you sure you want to add this user to favorites')
+    if(z) {
+      this.arr.push(this.currentGithubUser.getValue())
+    }
     localStorage.setItem('favorite', JSON.stringify(this.arr))
   }
 

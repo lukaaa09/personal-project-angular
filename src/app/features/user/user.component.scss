@@ -82,10 +82,35 @@
         border: none;
     }
 }
+h1{
+    width: 100%;
+    background-color: blueviolet;
+    font-family: cursive ;
+}
 .repos{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
     a{
         font-size: 23px;
         text-decoration: none;
-        color: blue($color: #000000);
+        margin-top: 15px;
+    }
+    span{
+        margin-top: 20px;
+    }
+    .stars{
+        // margin-left: 40%;
+        background-color: yellow;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+    .watchers{
+        margin-right: 25px;
+        background-color: rgb(73, 232, 73);
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
     }
 }

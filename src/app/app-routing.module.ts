@@ -4,7 +4,6 @@ import { LogOutGuard } from './core/guards/log-out.guard';
 import { LoginGuard } from './core/guards/login.guard';
 import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
-import { SearchComponent } from './features/search/search.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
@@ -26,18 +25,17 @@ const routes: Routes = [
   {
     path: 'dashboard',
     canActivate: [LogOutGuard],
-    loadChildren: () => import('./features/dashboard/dashboard/dashboard.module').then(m => m.DashboardModule)  
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)  
   },
   {
     path: 'user/:username',
     canActivate: [LogOutGuard],
-    loadChildren: () => import('./features/user/user/user.module').then(m => m.UserModule)  
+    loadChildren: () => import('./features/user/user.module').then(m => m.UserModule)  
   },
   {
     path: 'search',
     canActivate: [LogOutGuard],
-    component: SearchComponent
-    // loadChildren: () => import('./features/search/search/search.module').then(m => m.SearchModule)
+    loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule)
   },
   {
     path: 'favourite',
