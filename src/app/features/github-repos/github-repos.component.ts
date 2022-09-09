@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { IUserRepos } from 'src/app/core/interfaces/github-repos-interface';
 
 @Component({
   selector: 'app-github-repos',
@@ -9,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class GithubReposComponent implements OnInit {
 
-  @Input() githubRepos: any[] | undefined;
+  @Input() githubRepos!: IUserRepos[] | null;
   constructor() { }
 
   ngOnInit(): void {

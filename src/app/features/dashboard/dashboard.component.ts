@@ -12,7 +12,6 @@ import { UserService } from 'src/app/core/services/user.service';
 
 })
 export class DashboardComponent implements OnInit {
-  public username: string | undefined
   public githubUsers: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
 
   constructor(private userservice: UserService,

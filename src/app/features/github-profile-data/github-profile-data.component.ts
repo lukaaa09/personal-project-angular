@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { IUser } from 'src/app/core/interfaces/user.interface';
 
 @Component({
   selector: 'app-github-profile-data',
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 
 })
 export class GithubProfileDataComponent implements OnInit {
-  @Input() githubProfile: any
+  @Input() githubProfile!: IUser
 
   constructor() { }
 

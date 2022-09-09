@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, switchMap, tap } from 'rxjs';
-import { SearchService } from 'src/app/core/services/search.service';
+import { BehaviorSubject, Observable, switchMap,} from 'rxjs';
+import { IUserRepos } from 'src/app/core/interfaces/github-repos-interface';
+import { IUser } from 'src/app/core/interfaces/user.interface';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -12,11 +13,9 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class UserComponent implements OnInit {
   public currentUserName: string | null = ''
-  public currentGithubUser: BehaviorSubject<any> = new BehaviorSubject<{}>({});
-  public user: any
-  public arr: any[] = []
-  public userRepositories: BehaviorSubject<any> = new BehaviorSubject<[]>([]);
-  num = 0
+  public currentGithubUser: BehaviorSubject<IUser> = new BehaviorSubject<IUser>({}as IUser);
+  public arr: IUser[] = []
+  public userRepositories: BehaviorSubject<IUserRepos[]> = new BehaviorSubject<IUserRepos[]>([]);
   constructor(private userservice: UserService, private actevatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,26 +26,22 @@ export class UserComponent implements OnInit {
     }
   }
   public singleUser() {
-    this.userservice.getUsers(this.currentUserName).pipe(
-      switchMap((data: any): any => {
-        console.log(data)
+    this.userservice.getUser(this.currentUserName).pipe(
+      switchMap((data: IUser): Observable<IUserRepos[]> => {
         this.currentGithubUser.next(data)
-        this.getUserRepositories(data)
+        return this.userservice.getRepos(data.repos_url)
       })
-    ).subscribe()
-  }
-  public getUserRepositories(userData: any) {
-    this.userservice.getRepos(userData.repos_url).subscribe((repos: any) => {
+    ).subscribe((repos: IUserRepos[]) => {
       this.userRepositories.next(repos)
     })
   }
+  
   public saveData() {
     let z = confirm('Are you sure you want to add this user to favorites')
     if(z) {
-      this.arr.push(this.currentGithubUser.getValue())
+      this.arr.push(this.currentGithubUser.getValue() as IUser)
     }
     localStorage.setItem('favorite', JSON.stringify(this.arr))
-    this.num++
   }
 
 }

@@ -1,14 +1,18 @@
 .card {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
-   .card-body{
-    position: relative;
-    top: 100px;   
-    right: 300px; 
-   }
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
     
+    .card-body {
+        margin-left: 20px;
+    }
+    ul, li{
+        padding: 3px;
+        font-family: cursive;
+    }
+
     .followers {
         padding: 3px;
         background-color: rgb(58, 58, 202);
@@ -17,6 +21,7 @@
         border-radius: 5px;
         margin-right: 10px
     }
+
     .repo {
         padding: 3px;
         background-color: rgb(80, 238, 45);
@@ -25,6 +30,7 @@
         border-radius: 5px;
         margin-right: 10px
     }
+
     .gist {
         padding: 3px;
         background-color: #f7ff04;
@@ -33,6 +39,7 @@
         border-radius: 5px;
         margin-right: 10px
     }
+
     .following {
         padding: 3px;
         background-color: rgb(255, 0, 0);

@@ -9,7 +9,7 @@ import { IUser } from 'src/app/core/interfaces/user.interface';
 })
 export class FavouriteListComponent implements OnInit {
 
-  arr!: IUser[] 
+  arr!:  IUser[] 
   constructor() { }
 
   ngOnInit(): void {

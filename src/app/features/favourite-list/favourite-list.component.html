@@ -41,9 +41,9 @@
             <span style="--i:17;"></span>
             <span style="--i:13;"></span>
             <span style="--i:28;"></span>
-
         </div>
-        <h3>Total Fvourite Users {{arr.length}}</h3>
+        <h3 *ngIf="arr.length">Total Fvourite Users {{arr.length}}</h3>
+        <h3 *ngIf="!arr.length">No Favourite Users</h3>
         <div class="mid-container">
             <div class="users">
                 <div class="user" *ngFor="let user of arr, index as i">

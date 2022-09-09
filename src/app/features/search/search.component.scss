@@ -1,4 +1,4 @@
-section{
+section {
     width: 100%;
     min-height: 100vh;
     color: #fff;
@@ -9,36 +9,43 @@ section{
 
 
     @keyframes change {
-        0%{
+        0% {
             background-position: 0 50%;
         }
-        50%{
+
+        50% {
             background-position: 100% 50%;
         }
-        100%{
+
+        100% {
             background-position: 0 50%;
         }
-        
-        
+
+
     }
-    .card{
+
+    h4 {
+        background-color: gray;
+        width: 100%;
+        font-family: cursive;
+        font-size: 25px;
+    }
+
+    .card {
         display: flex;
-    
-        input{
+        flex-direction: column;
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input {
             width: 240px;
             height: 30px;
             margin-top: 30px;
-            margin-left: 40%;
-        }
-        button{
-            width: 90px;
-            height: 30px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 7px;
-            background-color: #bd27b8;
-            color: white;
-            cursor: pointer;
         }
     }
 }

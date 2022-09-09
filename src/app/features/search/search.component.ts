@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { catchError, of, Subject, tap } from 'rxjs';
+import { IUserRepos } from 'src/app/core/interfaces/github-repos-interface';
+import { IUser } from 'src/app/core/interfaces/user.interface';
 import { SearchService } from 'src/app/core/services/search.service';
-// import { NgxSpinnerService } from 'ngx-spinner/public_api';
 
 @Component({
   selector: 'app-search',
@@ -12,15 +13,12 @@ import { SearchService } from 'src/app/core/services/search.service';
 
 })
 export class SearchComponent implements OnInit {
-  public githubUserQuery: string | undefined;
-  public githubProfile: Subject<any> = new Subject<any>()
-  public githubRepos: Subject <any> = new Subject<any>()
+  public githubUserQuery!: string ;
+  public githubProfile: Subject<IUser> = new Subject<IUser>()
+  public githubRepos: Subject<IUserRepos[]> = new Subject<IUserRepos[]>()
   public errorMessage: string | undefined;
-
-
-
-  constructor(private router: Router, private userservice: SearchService,
-      ) { }
+  constructor(private router: Router, private userservice: SearchService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,25 +26,31 @@ export class SearchComponent implements OnInit {
     this.router.navigateByUrl('/dashboard').then()
   }
   public searchUser() {
-    // this.NgxSpinner.show()
-    this.userservice.getProfile(this.githubUserQuery).subscribe((data) => {
-      this.githubProfile.next(data)
-    }, (error) => {
-      this.errorMessage = error
-      console.log(error)
-    }
-    );
-    this.userservice.getRepos(this.githubUserQuery).subscribe((data) => {
-      this.githubRepos.next(data)
-      // this.NgxSpinner.hide()
-      console.log(this.githubRepos)
-    }, (error) => {
-      this.errorMessage = error
-      // console.log(error)
-    }
-    )
-  }
+    this.userservice.getProfile(this.githubUserQuery).pipe(
+      tap((data: IUser) => {
+        this.githubProfile.next(data)
 
+      }),
+      catchError((err: string) => {
+        alert(err) 
+          return of(err)
+        
+      })
+    ).subscribe()
+
+    this.userservice.getRepos(this.githubUserQuery).pipe(
+      tap((data: IUserRepos[]) => {
+        this.githubRepos.next(data)
+      }),
+      catchError((err: string) => {
+        alert(err)
+        return of(err)
+      })
+    ).subscribe()
+
+  }
 }
+
+
 
 

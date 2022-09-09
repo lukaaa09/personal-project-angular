@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterEvent } from '@angular/router';
+import { Router,} from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
 import { ILogin } from 'src/app/core/interfaces/login.interfaces';
 import { IUserPayload } from 'src/app/core/interfaces/user-payload.interface';

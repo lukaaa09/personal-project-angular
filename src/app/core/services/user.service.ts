@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {  Observable } from 'rxjs';
+import { IUserRepos } from '../interfaces/github-repos-interface';
 import { IUser } from '../interfaces/user.interface';
 
 @Injectable({
@@ -16,16 +17,12 @@ export class UserService {
   public getAllUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(`${this.apiUrl}?per_page=${this.pageLimit}`)
   }
-  
-  public getUsers(username: string | null): Observable <{}>{
-    console.log(this.http.get<{}>(`${this.apiUrl}/${username}`))
-    return this.http.get<{}>(`${this.apiUrl}/${username}`)
+
+  public getUser(username: string | null): Observable<IUser> {
+    return this.http.get<IUser>(`${this.apiUrl}/${username}`)
   }
-  public getFavourite(username: string){
-    return this.http.get(`${this.apiUrl}/${username}`)
-  }
-  public getRepos(url: string) {
-    return this.http.get(url)
+  public getRepos(url: string): Observable<IUserRepos[]> {
+    return this.http.get<IUserRepos[]>(url)
   }
 
 }
