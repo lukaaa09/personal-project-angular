@@ -1,0 +1,37 @@
+h3{
+    font-size: 25px;
+    width: 100%;
+    background-color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.repos{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    
+    a{
+        font-size: 23px;
+        text-decoration: none;
+        margin-top: 15px;
+        color: white;
+    }
+    span{
+        margin-top: 20px;
+    }
+    .stars{
+        // margin-left: 40%;
+        background-color: yellow;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+
+    }
+    .watchers{
+        margin-right: 25px;
+        background-color: rgb(73, 232, 73);
+        color: black;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+}

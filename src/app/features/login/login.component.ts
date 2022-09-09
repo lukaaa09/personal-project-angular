@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterEvent } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
-import { login } from 'src/app/core/interfaces/login.interfaces';
+import { ILogin } from 'src/app/core/interfaces/login.interfaces';
+import { IUserPayload } from 'src/app/core/interfaces/user-payload.interface';
 import { UserServiceService } from 'src/app/core/services/register-service.service';
 
 @Component({
@@ -26,11 +27,11 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/register').then()
   }
   public loginUser() {
-    this.userservice.loginuser(this.loginForm.value as login).pipe(
-      tap((response: login) => {
+    this.userservice.loginuser(this.loginForm.value as IUserPayload).pipe(
+      tap((response: ILogin) => {
         console.log(response)
         localStorage.setItem('token', response.accessToken!)
-        localStorage.setItem('username', response.username)
+        localStorage.setItem('username', response.user.username as string)
         this.userservice.isLoggedIn.next(true)
         this.router.navigateByUrl('/dashboard').then()
 

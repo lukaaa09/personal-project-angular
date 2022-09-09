@@ -2,13 +2,10 @@
     <div class="card-header">
         <h3>Github Repositories</h3>
     </div>
-    <div class="card-body">
-        <ul>
-            <li *ngFor="let repo of githubRepos ">
-                <a [href]="repo.html_url">{{repo.name}}</a>
-                <span>{{repo.stargazers_count}} Stars</span>
-                <span>{{repo.watchers_count}} Watchers</span>
-            </li>
-        </ul>
+    <div class="repos" *ngFor="let repos of githubRepos">
+        <a [href]="repos.html_url">Name: {{repos.name}}</a>
+        <span class="stars">Stars: {{repos.stargazers_count}}</span>
+        <span class="watchers">Watchers {{repos.watchers_count}} </span>
+        
     </div>
 </div>

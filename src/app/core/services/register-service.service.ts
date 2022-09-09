@@ -2,7 +2,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { login } from '../interfaces/login.interfaces';
+import { ILogin,  } from '../interfaces/login.interfaces';
+import { IUserPayload } from '../interfaces/user-payload.interface';
 
 
 @Injectable({
@@ -21,11 +22,11 @@ export class UserServiceService {
     return this.http.get(`${this.baseUrl}/user`)
   }
 
-  public loginuser(user: login): Observable<login> {
-    return this.http.post<login>(`${this.baseUrl}/login`, user)
+  public loginuser(user: IUserPayload): Observable<ILogin> {
+    return this.http.post<ILogin>(`${this.baseUrl}/login`, user)
   }
-  public registerUser(user: login): Observable<login> {
-    return this.http.post<login>(`${this.baseUrl}/register`, user)
+  public registerUser(user: IUserPayload): Observable<ILogin> {
+    return this.http.post<ILogin>(`${this.baseUrl}/register`, user)
   }
 
   public logOutUser() {

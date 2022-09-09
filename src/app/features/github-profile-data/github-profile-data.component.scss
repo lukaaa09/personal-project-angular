@@ -3,8 +3,10 @@
    justify-content: center;
    align-items: center;
 
-   .card-header{
-    
+   .card-body{
+    position: relative;
+    top: 100px;   
+    right: 300px; 
    }
     
     .followers {

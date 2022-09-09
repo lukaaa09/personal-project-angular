@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { IUser } from 'src/app/core/interfaces/user.interface';
 import { UserServiceService } from 'src/app/core/services/register-service.service';
 import { SearchService } from 'src/app/core/services/search.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -14,7 +15,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class DashboardComponent implements OnInit {
   public username: any
-  public githubUsers: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public githubUsers: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
   public githubUserQuery: string | undefined;
   public githubProfile: any;
   public githubRepos: any[] | undefined
@@ -26,7 +27,7 @@ export class DashboardComponent implements OnInit {
     private register: UserServiceService
   ) { }
   ngOnInit(): void {
-    this.userservice.getAllUsers().subscribe(users => {
+    this.userservice.getAllUsers().subscribe((users: IUser[]) => {
       this.githubUsers.next(users)
     })
 
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit {
   }
   public shouldShowMore() {
     this.userservice.pageLimit += 10;
-    this.userservice.getAllUsers().subscribe(users => {
+    this.userservice.getAllUsers().subscribe((users: IUser[]) => {
       this.githubUsers.next(users)
     })
   }

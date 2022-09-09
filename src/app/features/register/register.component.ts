@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
-import { login } from 'src/app/core/interfaces/login.interfaces';
+import { IUserPayload } from 'src/app/core/interfaces/user-payload.interface';
 import { passwordValidator } from 'src/app/core/password-validator';
 import { UserServiceService } from 'src/app/core/services/register-service.service';
 
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
   }
   
   public registerMethod() {
-    this.userservice.registerUser(this.register.value as login).pipe(
+    this.userservice.registerUser(this.register.value as IUserPayload).pipe(
       tap(() => {
         alert('succesfully registered')
         this.register.reset()
