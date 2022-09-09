@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { IUser } from 'src/app/core/interfaces/user.interface';
-import { UserServiceService } from 'src/app/core/services/register-service.service';
-import { SearchService } from 'src/app/core/services/search.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -14,17 +12,11 @@ import { UserService } from 'src/app/core/services/user.service';
 
 })
 export class DashboardComponent implements OnInit {
-  public username: any
+  public username: string | undefined
   public githubUsers: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
-  public githubUserQuery: string | undefined;
-  public githubProfile: any;
-  public githubRepos: any[] | undefined
-  public getUser = localStorage.getItem('username')
 
   constructor(private userservice: UserService,
     private router: Router,
-    private searchService: SearchService,
-    private register: UserServiceService
   ) { }
   ngOnInit(): void {
     this.userservice.getAllUsers().subscribe((users: IUser[]) => {
@@ -32,7 +24,7 @@ export class DashboardComponent implements OnInit {
     })
 
   }
-  public getUserPage(username: any) {
+  public getUserPage(username: string) {
     this.router.navigateByUrl(`/user/${username}`).then()
 
   }

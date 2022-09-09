@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FavouriteListComponent } from './favourite-list/favourite-list.component';
+import { FavouriteListComponent } from './favourite-list.component';
 import { Router, RouterModule } from '@angular/router';
 
 
@@ -16,4 +16,4 @@ import { Router, RouterModule } from '@angular/router';
   exports: [FavouriteListComponent]
 
 })
-export class FavouriteModule { }
+export class FavouriteListModule { }

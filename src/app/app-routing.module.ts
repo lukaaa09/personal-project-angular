@@ -40,7 +40,7 @@ const routes: Routes = [
   {
     path: 'favourite',
     canActivate: [LogOutGuard],
-    loadChildren: () => import('./features/favourite/favourite.module').then(m => m.FavouriteModule)
+    loadChildren: () => import('./features/favourite-list/favourite-list.module').then(m => m.FavouriteListModule)
   },
   {
     path: '**',

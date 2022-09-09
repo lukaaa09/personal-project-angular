@@ -24,7 +24,7 @@ export interface IUser{
     // location: string,
     // email: string | null,
     // hireable: string | null,
-    // bio: string | null,
+    bio: string | null,
     // twitter_username: string,
     // public_repos: number,
     // public_gists: number,
